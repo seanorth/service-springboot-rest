@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: szf-rest
+  profiles:
+    active: local
+
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
