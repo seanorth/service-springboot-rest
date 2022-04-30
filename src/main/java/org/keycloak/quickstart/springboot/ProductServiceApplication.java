@@ -17,19 +17,16 @@
 
 package org.keycloak.quickstart.springboot;
 
-import cn.com.svfactory.common.secure.feign.AuthzService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 @SpringBootApplication
-@EnableFeignClients(basePackageClasses = {AuthzService.class})
 public class ProductServiceApplication {
 
 	private static Log logger = LogFactory.getLog(ProductServiceApplication.class);
