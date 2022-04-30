@@ -17,8 +17,6 @@
 
 package org.keycloak.quickstart.springboot.web;
 
-import cn.com.svfactory.common.secure.annotation.Resource;
-import cn.com.svfactory.common.secure.interceptor.AuthzInterceptor;
 import org.keycloak.adapters.springsecurity.client.KeycloakClientRequestFactory;
 import org.keycloak.quickstart.springboot.service.ProductService;
 import org.springframework.beans.BeansException;
@@ -28,8 +26,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -51,14 +47,14 @@ public class ProductServiceController implements ApplicationContextAware {
     private  HttpServletRequest request;
 
 	@GetMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
-	@Resource("handle:customers:request")
+	//@Resource("handle:customers:request")
 	public List<String> handleCustomersRequest(Principal principal) {
-		AuthzInterceptor bean = ctx.getBean(AuthzInterceptor.class);
-		System.out.println(bean);
-		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
-
-		//InterceptorRegistry beanInWeb = wac.getBean(InterceptorRegistry.class);
-		//System.out.println(beanInWeb);
+		//AuthzInterceptor bean = ctx.getBean(AuthzInterceptor.class);
+		//System.out.println(bean);
+		//WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
+		//
+		////InterceptorRegistry beanInWeb = wac.getBean(InterceptorRegistry.class);
+		////System.out.println(beanInWeb);
 
 		String header = request.getHeader(KeycloakClientRequestFactory.AUTHORIZATION_HEADER);
 		System.out.println(header);
